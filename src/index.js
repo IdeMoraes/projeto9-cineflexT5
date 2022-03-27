@@ -1,37 +1,24 @@
 import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MoviesPage from "./components/MoviesPage";
+import ShowTimesPage from "./components/ShowTimesPage";
+import './css/style.css';
 
 function App() {
   return (
-    <>
-      <MoviesPage />
-      <ShowTimingPage />
-      <SeatsPage />
-      <SuccessPage />
-    </>
-  );
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<MoviesPage />} />
+				<Route path="/sessoes/:idFilme" element={<ShowTimesPage />} />
+        <Route path="/assentos/:idSessao" element={<SeatsPage />} />
+        <Route path="/sucesso" element={<SuccessPage />} />
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 ReactDOM.render(<App />, document.querySelector(".root"));
 
-function MoviesPage() {
-  return (
-    <div className="main-page">
-      <header>CINEFLEX</header>
-      <div className="step">Selecione o filme</div>
-      <div className="in-theaters">
-        <div className="movie-poster">
-          <img
-            src="https://news.artnet.com/app/news-upload/2018/08/1667-741x1024.jpg"
-            alt="movie poster"
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
-function ShowTimingPage() {
-  return <div></div>;
-}
 function SeatsPage() {
   return <div></div>;
 }
