@@ -1,0 +1,42 @@
+.seating-plan{
+    display: flex;
+    flex-wrap: wrap;
+}
+.legends{
+    display: flex;
+    justify-content: space-around;
+}
+.legend{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.legend-circle, .seat{
+    width: 26px;
+    height: 26px;
+    background-color: #C3CFD9;
+    border: 1px solid #808F9D;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3.5px;
+    margin-right: 3.5px ;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.selected{
+    background-color: #8DD7CF;
+    border: 1px solid #1AAE9E;
+    border-radius: 17px;
+}
+.available{
+    background-color: #C3CFD9;
+border: 1px solid #7B8B99;
+border-radius: 17px;
+}
+.unavailable{
+    background: #FBE192;
+border: 1px solid #F7C52B;
+border-radius: 17px;
+}

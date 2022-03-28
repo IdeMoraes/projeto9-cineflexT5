@@ -1,17 +1,20 @@
 import './style.css';
-import Header from "../Header";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Header from "../Header";
+import Footer from '../Footer';
 
 export default function ShowTimesPage(){
     const  parameter   = useParams();
+    const [chosenMovieData, setChosenMovieData]=useState([]);
     const [days,setDays]=useState([]);
     useEffect(() => {
 		const requisicao = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${parameter.idFilme}/showtimes`);
 		requisicao.then(resposta => {
             console.log(resposta.data);
+            setChosenMovieData(resposta.data);
             setDays(resposta.data.days);
         });
 	}, []);
@@ -23,6 +26,7 @@ export default function ShowTimesPage(){
             <div className="days">
                 {days.map(day=> <Day weekday={day.weekday} date={day.date} showtimes={day.showtimes}/>)}
             </div>
+            <Footer posterURL={chosenMovieData.posterURL} title={chosenMovieData.title} weekday="" showtime="" />
         </div>
     );
 }

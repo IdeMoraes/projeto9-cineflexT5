@@ -26,7 +26,7 @@ export default function MoviesPage() {
   function MoviePoster(props){
       return(
         <Link to={`/sessoes/${props.id}`}> {/* Por que ese to precisa de {} aqui? */}
-            <div className="movie-poster" onClick={()=>alert(props.id)}> {/* Por que props.id só funciona sem {} aqui? */}
+            <div className="movie-poster"> {/* Nos testes usei onClick={()=>alert(props.id)}. Por que props.id só funciona sem {} aqui? */}
                 <img
                 src={props.imageURL} alt="movie poster"
                 />
